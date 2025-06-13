@@ -1,0 +1,131 @@
+.dark-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.dark-toggle input {
+  display: none;
+}
+
+.slider {
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 26px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+input:checked + .slider {
+  background-color: #333;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.4);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#display {
+  font-size: 48px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+#laps {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  max-height: 150px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+#laps li {
+  padding: 8px 10px;
+  background: rgba(0,0,0,0.1);
+  margin: 5px 0;
+  border-radius: 6px;
+}
+
+body.dark {
+  background: #121212;
+  color: #ffffff;
+}
+
+body.dark .container {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+body.dark .buttons button {
+  background: #bb86fc;
+}
+
+body.dark .buttons button:hover {
+  background: #9b5de5;
+}
+
+body.dark #laps li {
+  background: rgba(255, 255, 255, 0.1);
+}
